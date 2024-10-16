@@ -1,52 +1,51 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-  <head>
-    <title>App settings</title>
+<head>
+    <title>App Updates</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="icon" type="image/x-icon" href="/favicon.png">
-    <link rel="stylesheet" type="text/css" id="active-theme" href="">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" type="text/css" href="../styles/game.css">
-    <link rel="stylesheet" type="text/css" href="../styles/update.css">
-  </head>
-   <body>
-      <div id="container">
-         <img src="../assets/splash.png" id="app-icon">
-      </div>
-      <div id="update-found" class="update-div" style="display: block;">
-         <p id="update-alert" class="update-text">Update found!</p>
-         <p class="update-text">Would you like to download the update now?</p>
-         <div id="update-download-now" class="update-options-button">
-            <p class="update-text">Download now</p>
-         </div>
-         <div id="update-download-later" class="update-options-button">
-            <p class="update-text">Later</p>
-         </div>
-      </div>
-      <div id="update-downloading" class="update-div" style="display: none;">
-         <p id="update-alert" class="update-text">Downloading the update</p>
-         <p id="update-text" class="update-text">Please don't close the app.</p>
-         <div id="progress-bar-container">
-         <img src="../assets/progress_bar/bar.png" id="progress-bar">
-         <img src="../assets/progress_bar/0.png" class="progress-bar-preload" id="progress-bar-preload-0">
-         <img src="../assets/progress_bar/0.png" class="progress-bar-preload" id="progress-bar-preload-1">
-         <img src="../assets/progress_bar/0.png" class="progress-bar-preload" id="progress-bar-preload-2">
-         <img src="../assets/progress_bar/0.png" class="progress-bar-preload" id="progress-bar-preload-3">
-         <p id="info" class="">ETA: N/A</p>
-      </div>
-      </div>
-      <div id="update-downloaded" class="update-div" style="display: none;">
-         <p id="update-alert" class="update-text">Update downloaded!</p>
-         <p class="update-text">Install the update now?</p>
-         <div id="update-download-now" class="update-options-button">
-            <p class="update-text">Install now</p>
-         </div>
-         <div id="update-download-later" class="update-options-button">
-            <p class="update-text">Later</p>
-         </div>
-      </div>
-      <script>
-         require('../scripts/updater_renderer.js')
-         require('../scripts/renderer.js')
-       </script>
-   </body>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div id="container" class="flex justify-center items-center my-10">
+        <img src="../assets/splash.png" id="app-icon" class="h-32 w-32">
+    </div>
+    <div id="update-found" class="update-div bg-white p-5 rounded shadow-md" style="display: block;">
+        <p id="update-alert" class="text-lg font-bold mb-2">Update Found!</p>
+        <p class="mb-4">Would you like to download the update now?</p>
+        <div id="update-download-now" class="update-options-button bg-yellow-600 text-white p-2 rounded hover:bg-yellow-500 cursor-pointer mb-2">
+            <p>Download Now</p>
+        </div>
+        <div id="update-download-later" class="update-options-button bg-gray-300 text-gray-700 p-2 rounded hover:bg-gray-400 cursor-pointer">
+            <p>Later</p>
+        </div>
+    </div>
+    <div id="update-downloading" class="update-div bg-white p-5 rounded shadow-md" style="display: none;">
+        <p id="update-alert" class="text-lg font-bold mb-2">Downloading The Update</p>
+        <p class="mb-4 bg-red-600 text-white uppercase p-2 rounded">Please don't close the app !</p>
+        <div id="progress-bar-container" class="relative">
+            <img src="../assets/progress_bar/bar.png" id="progress-bar" class="w-full">
+            <img src="../assets/progress_bar/0.png" class="progress-bar-preload absolute top-0 left-0" id="progress-bar-preload-0">
+            <img src="../assets/progress_bar/0.png" class="progress-bar-preload absolute top-0 left-0" id="progress-bar-preload-1">
+            <img src="../assets/progress_bar/0.png" class="progress-bar-preload absolute top-0 left-0" id="progress-bar-preload-2">
+            <img src="../assets/progress_bar/0.png" class="progress-bar-preload absolute top-0 left-0" id="progress-bar-preload-3">
+            <p id="info" class="mt-2">ETA: N/A</p>
+        </div>
+    </div>
+    <div id="update-downloaded" class="update-div bg-white p-5 rounded shadow-md" style="display: none;">
+        <p id="update-alert" class="text-lg font-bold mb-2">Update downloaded!</p>
+        <p class="mb-4">Install the update now?</p>
+        <div id="update-download-now" class="update-options-button bg-blue-500 text-white p-2 rounded hover:bg-blue-600 cursor-pointer mb-2">
+            <p>Install now</p>
+        </div>
+        <div id="update-download-later" class="update-options-button bg-gray-300 text-gray-700 p-2 rounded hover:bg-gray-400 cursor-pointer">
+            <p>Later</p>
+        </div>
+    </div>
+    <script>
+        require('../scripts/updater_renderer.js');
+        require('../scripts/renderer.js');
+    </script>
+</body>
 </html>
