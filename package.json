@@ -6,8 +6,14 @@
   "repository": "https://github.com/GGR-Devs/GGReborn-App",
   "author": "GGReborn",
   "contributors": [
-    {"name": "BXn4", "url": "https://github.com/bxn4"},
-    {"name": "MKerem", "url": "https://github.com/keremgokcek"}
+    {
+      "name": "BXn4",
+      "url": "https://github.com/bxn4"
+    },
+    {
+      "name": "MKerem",
+      "url": "https://github.com/keremgokcek"
+    }
   ],
   "keywords": [
     "ggreborn",
@@ -66,14 +72,14 @@
         }
       ]
     },
-	"nsis": {
-	"oneClick": false,
-    "allowElevation": true,
-    "allowToChangeInstallationDirectory": true,
-	"license": "LICENSE",
-	"deleteAppDataOnUninstall": true,
-	"createDesktopShortcut": true
-	},
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "license": "LICENSE",
+      "deleteAppDataOnUninstall": true,
+      "createDesktopShortcut": true
+    },
     "asar": true,
     "files": [
       "**/*",
