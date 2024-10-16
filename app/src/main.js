@@ -214,29 +214,15 @@ app.on('window-all-closed', () => {
     }
 });
 
-ipcMain.on('downloadUpdate', (event) => {
-    autoUpdater.downloadUpdate();
+autoUpdater.on('download-progress', (progress) => {
+    const mainWindow = BrowserWindow.getAllWindows()[0];
 
-    autoUpdater.on('update-downloaded', () => {
-        dialog.showMessageBox(
-            null, {
-                buttons: ['Install now', 'Later'],
-                title: 'App update',
-                message: 'Update downloaded!',
-                detail: 'Close the app now, to apply the update?',
-            }
-        ).then(data => {
-            switch (data.response) {
-                case 0:
-                    log('INFO', 'User choosed to install it now');
-                    app.quit();
-                    break;
-                case 1:
-                    log('INFO', 'User choosed to install it later');
-                    updateWin.close();
-                    break;
-            };
-        });
+    mainWindow.webContents.send('download-progress', {
+        percent: progress.percent,
+        bytesPerSecond: progress.bytesPerSecond,
+        transferred: progress.transferred,
+        total: progress.total,
+        remaining: progress.estimatedTime
     });
 });
 

@@ -12,6 +12,7 @@ let nextPreload = 0
 const update_found = document.getElementById('update-found');
 const update_downloading = document.getElementById('update-downloading');
 const update_downloaded = document.getElementById('update-downloaded');
+const etaInfo = document.getElementById('info');
 
 handleControls();
 
@@ -27,6 +28,21 @@ function handleControls() {
     document.getElementById('update-download-later').addEventListener('click', event => {
         window.close();
     });
+}
+
+ipcRenderer.on('download-progress', (event, progress) => {
+    const { percent, transferred, total, bytesPerSecond, remaining } = progress;
+
+    etaInfo.innerText = `ETA: ${formatETA(remaining)}`;
+
+    console.log(`Downloaded ${transferred} of ${total} bytes (${percent.toFixed(2)}%) at ${bytesPerSecond} bytes/sec`);
+});
+
+function formatETA(remaining) {
+    const seconds = Math.round(remaining);
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${minutes}m ${secs}s`;
 }
 
 function downloadingAnim() {
